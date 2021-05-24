@@ -1,0 +1,2 @@
+export const UPDATE_STATE = "CATEGORIES/UPDATE_STATE";
+export const CATEGORY = "CATEGORY";
