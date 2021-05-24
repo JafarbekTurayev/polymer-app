@@ -7,7 +7,7 @@ import {AvField, AvForm} from "availity-reactstrap-validation";
 const AdminCategories = (props) => {
 
     useEffect(() => {
-        console.log("Eldor")
+        console.log("Eldor");
         console.log(props)
         props.getAllCategories();
     }, [])
