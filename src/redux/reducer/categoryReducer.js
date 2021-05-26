@@ -8,7 +8,6 @@ const initialState = {
     selectedCategory: {},
 }
 export const categoryReducer = (stete = initialState, action) => {
-    console.log("ishladi")
     switch (action.type) {
         case UPDATE_STATE:
             return {...stete, ...action.payload}
