@@ -9,6 +9,7 @@ import {
 } from "../redux/action/marketingAction";
 import {Modal, ModalBody, ModalFooter} from "reactstrap";
 import {AvForm ,AvField} from "availity-reactstrap-validation"
+import {TOKEN_NAME} from "../tools/tools";
 
 
 
@@ -18,21 +19,23 @@ const AdminMarketing = (props) => {
         props.getAllMarketings();
     }, []);
 
-    const saveMarketing = (event, values) => {
+    const saveMarketing = ( event, values) => {
         console.log(values);
         if (props.selectedMarketing == null) {
             console.log("add");
-            props.addMarketing(values);
+            let key=localStorage.getItem(TOKEN_NAME);
+            console.log(key);
+            props.addOrder({values, headers: {authorization: key}});
         } else {
             let obj = {
                 id: props.selectedMarketing.id,
-                // nameUz: values.nameUz //2-variant
                 ...values
             };
             console.log("edit");
             props.editMarketing(obj);
         }
     };
+
 
     return (
         <div>
@@ -86,24 +89,24 @@ const AdminMarketing = (props) => {
             </div>
 
             <Modal isOpen={props.modalOpen}>
-                <AvForm /*onValidSubmit={saveMarketing()}*/>
+                <AvForm onValidSubmit={saveMarketing}>
                     <ModalBody>
-                        Hello world.
-                        {/*<AvField type="file"/>*/}
-                {/*        /!*<AvField name="titleUz" defaultValue={props.selectedMarketing.titleUz} type="text"*!/*/}
-                {/*        /!*         placeholder="Uzbekcha nomini kirit"/>*!/*/}
-                {/*        /!*<AvField name="titleRu" defaultValue={props.selectedMarketing.titleRu} type="text"*!/*/}
-                {/*        /!*         placeholder="Ruscha nomini kirit"/>*!/*/}
-                {/*        /!*<AvField name="titleEn" defaultValue={props.selectedMarketing.titleEn} type="text"*!/*/}
-                {/*        /!*         placeholder="Inglizcha nomini kirit"/>*!/*/}
-                {/*        /!*<AvField name="textUz" defaultValue={props.selectedMarketing.textUz} type="text"*!/*/}
-                {/*        /!*         placeholder="Uzbekcha nomini kirit"/>*!/*/}
-                {/*        /!*<AvField name="textRu" defaultValue={props.selectedMarketing.textRu} type="text"*!/*/}
-                {/*        /!*         placeholder="Ruscha nomini kirit"/>*!/*/}
-                {/*        /!*<AvField name="textEn" defaultValue={props.selectedMarketing.textEn} type="text"*!/*/}
-                {/*        /!*         placeholder="Inglizcha nomini kirit"/>*!/*/}
-                {/*        <AvField name="photoUrl" defaultValue={props.selectedMarketing.photoUrl} type="text"*/}
-                {/*                 placeholder="url kirit"/>*/}
+
+                     
+                        <AvField name="titleUz" defaultValue={props.selectedMarketing.titleUz} type="text"
+                                 placeholder="Uzbekcha nomini kirit"/>
+                        <AvField name="titleRu" defaultValue={props.selectedMarketing.titleRu} type="text"
+                                 placeholder="Ruscha nomini kirit"/>
+                        <AvField name="titleEn" defaultValue={props.selectedMarketing.titleEn} type="text"
+                                 placeholder="Inglizcha nomini kirit"/>
+                        <AvField name="textUz" defaultValue={props.selectedMarketing.textUz} type="text"
+                                 placeholder="Uzbekcha nomini kirit"/>
+                        <AvField name="textRu" defaultValue={props.selectedMarketing.textRu} type="text"
+                                 placeholder="Ruscha nomini kirit"/>
+                        <AvField name="textEn" defaultValue={props.selectedMarketing.textEn} type="text"
+                                 placeholder="Inglizcha nomini kirit"/>
+                        <AvField name="photoUrl" defaultValue={props.selectedMarketing.photoUrl} type="text"
+                                 placeholder="url kirit"/>
                     </ModalBody>
                     <ModalFooter>
                         <button className="btn btn-success" type="submit">Save</button>
@@ -123,7 +126,7 @@ const mapStateToProps = (state) => {
     return {
         modalOpen: state.marketings.modalOpen,
         marketing: state.marketings.marketing,
-        // selectedMarketing: state.marketing.selectedMarketing
+        selectedMarketing: state.marketings.selectedMarketing,
         //statelar qo'shiladi
     }
 };
