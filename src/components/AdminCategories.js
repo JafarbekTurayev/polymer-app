@@ -25,6 +25,8 @@ const AdminCategories = (props) => {
             };
             console.log("edit");
             props.editCategory(obj);
+
+
         }
     };
 

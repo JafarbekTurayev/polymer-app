@@ -88,7 +88,7 @@ const AdminMarketing = (props) => {
             <Modal isOpen={props.modalOpen}>
                 <AvForm /*onValidSubmit={saveMarketing()}*/>
                     <ModalBody>
-                        Hello world
+                        Hello world.
                         {/*<AvField type="file"/>*/}
                 {/*        /!*<AvField name="titleUz" defaultValue={props.selectedMarketing.titleUz} type="text"*!/*/}
                 {/*        /!*         placeholder="Uzbekcha nomini kirit"/>*!/*/}
