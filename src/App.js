@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import Admin from "./pages/Admin";
 import PrivateRoute from "./components/PrivateRoute";
+import Prodacts from "./pages/Prodacts";
 import {useEffect} from "react";
 import {TOKEN_NAME} from "./tools/tools";
 import React from "react";
