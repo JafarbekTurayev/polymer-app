@@ -1,8 +1,6 @@
 import React, {useEffect} from 'react';
-import {Modal, ModalBody, ModalFooter} from 'reactstrap';
 import {connect} from "react-redux";
 import {addCategory, deleteCategory, editCategory, getAllCategories, updateState} from "../redux/action/categoryAction";
-import {AvField, AvForm} from "availity-reactstrap-validation";
 
 const AdminCategories = (props) => {
 
@@ -17,7 +15,7 @@ const AdminCategories = (props) => {
         console.log(values)
         if (props.selectedCategory == null) {
             console.log("add")
-            props.addCategory(values);
+
         } else {
             let obj = {
                 id: props.selectedCategory.id,
