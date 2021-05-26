@@ -20,7 +20,7 @@ function App() {
                 <Switch>
                     {/*<Route exact path='/' component={Home}/>*/}
                     <Route exact path='/login' component={Login}/>
-                    <Route path="/products" exact component={Prodacts}/>
+                    {/*<Route path="/products" exact component={Prodacts}/>*/}
                     <PrivateRoute exact path='/admin/:url' component={Admin}/>
                     {/*<Route component={NotFound}/>*/}
                 </Switch>

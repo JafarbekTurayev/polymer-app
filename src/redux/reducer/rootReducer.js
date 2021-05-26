@@ -10,6 +10,6 @@ export const rootReducer = combineReducers({
     app: appReducer,
     products: productsReducer,
     category: categoryReducer,
-    order: orderReducer
-
+    order: orderReducer,
+    productType: productsReducer
 });
