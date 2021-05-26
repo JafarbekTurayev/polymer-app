@@ -1,8 +1,6 @@
 import React, {useEffect} from 'react';
-import {Modal, ModalBody, ModalFooter} from 'reactstrap';
 import {connect} from "react-redux";
 import {addCategory, deleteCategory, editCategory, getAllCategories, updateState} from "../redux/action/categoryAction";
-import {AvField, AvForm} from "availity-reactstrap-validation";
 
 const AdminCategories = (props) => {
 

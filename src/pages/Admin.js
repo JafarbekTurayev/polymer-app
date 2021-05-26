@@ -16,6 +16,7 @@ const Admin = (props) => {
                         {console.log(props)}
                         {props.history.location.pathname == "/admin/dashboard" ? <AdminDashboard/> : ""}
                         {props.history.location.pathname == "/admin/category" ? <AdminCategories/> : ""}
+                        {/*{props.history.location.pathname == "/admin/order" ? <Order/> : ""}*/}
                     </div>
                 </div>
             </div>

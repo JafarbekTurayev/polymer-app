@@ -10,7 +10,6 @@ function App() {
             <BrowserRouter>
                 <Switch>
                     {/*<Route exact path='/' component={Home}/>*/}
-                    {/*<Route exact path='/category/:url' component={CategoryPage}/>*/}
                     <Route exact path='/login' component={Login}/>
                     <PrivateRoute exact path='/admin/:url' component={Admin}/>
                     {/*<Route component={NotFound}/>*/}
