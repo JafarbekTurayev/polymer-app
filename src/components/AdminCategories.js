@@ -15,7 +15,7 @@ const AdminCategories = (props) => {
         console.log(values)
         if (props.selectedCategory == null) {
             console.log("add")
-            props.addCategory(values);
+
         } else {
             let obj = {
                 id: props.selectedCategory.id,
