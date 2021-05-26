@@ -7,7 +7,7 @@ import {
     getAllMarketings,
     updateState
 } from "../redux/action/marketingAction";
-import {Modal, ModalBody, ModalFooter} from "reactstrap";
+import {Label, Modal, ModalBody, ModalFooter} from "reactstrap";
 import {AvForm ,AvField} from "availity-reactstrap-validation"
 import {TOKEN_NAME} from "../tools/tools";
 
@@ -92,19 +92,21 @@ const AdminMarketing = (props) => {
                 <AvForm onValidSubmit={saveMarketing}>
                     <ModalBody>
 
-                     
-                        <AvField name="titleUz" defaultValue={props.selectedMarketing.titleUz} type="text"
-                                 placeholder="Uzbekcha nomini kirit"/>
+                        <div className="imgPost">
+                            <AvField type='file'  accept=".jpg, .jpeg, .png" name="photosId" />
+                        </div>
+                        <AvField name="titleUz"  defaultValue={props.selectedMarketing.titleUz} type="text"
+                                label="Sarlavha (uzbek)" placeholder="Uzbekcha nomini kirit"/>
                         <AvField name="titleRu" defaultValue={props.selectedMarketing.titleRu} type="text"
-                                 placeholder="Ruscha nomini kirit"/>
+                                label="Sarlavha (rus)" placeholder="Ruscha nomini kirit"/>
                         <AvField name="titleEn" defaultValue={props.selectedMarketing.titleEn} type="text"
-                                 placeholder="Inglizcha nomini kirit"/>
+                                label="Sarlavha (en)" placeholder="Inglizcha nomini kirit"/>
                         <AvField name="textUz" defaultValue={props.selectedMarketing.textUz} type="text"
-                                 placeholder="Uzbekcha nomini kirit"/>
+                               label="Izoh (uzbek)"  placeholder="Uzbekcha nomini kirit"/>
                         <AvField name="textRu" defaultValue={props.selectedMarketing.textRu} type="text"
-                                 placeholder="Ruscha nomini kirit"/>
+                               label="Izoh (rus)"  placeholder="Ruscha nomini kirit"/>
                         <AvField name="textEn" defaultValue={props.selectedMarketing.textEn} type="text"
-                                 placeholder="Inglizcha nomini kirit"/>
+                               label="Izoh (en)"  placeholder="Inglizcha nomini kirit"/>
                         <AvField name="photoUrl" defaultValue={props.selectedMarketing.photoUrl} type="text"
                                  placeholder="url kirit"/>
                     </ModalBody>
