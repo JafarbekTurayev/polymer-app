@@ -5,6 +5,7 @@ import {addCategory, deleteCategory, editCategory, getAllCategories, updateState
 const AdminCategories = (props) => {
 
     useEffect(() => {
+        console.log("Eldor")
         console.log("Ishla!")
         console.log(props)
         props.getAllCategories();
