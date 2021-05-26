@@ -11,7 +11,7 @@ import {TOKEN_NAME} from "./tools/tools";
 
 function App() {
     useEffect(()=>{
-            localStorage.setItem(TOKEN_NAME, 11111)
+            // localStorage.setItem(TOKEN_NAME, 11111)
     }, [])
     return (
         <div>
