@@ -1,7 +1,7 @@
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import {ToastContainer} from "react-toastify";
 import Login from "./pages/Login";
-// import "./sass/order.scss"
+import "./sass/order.scss"
 import 'react-toastify/dist/ReactToastify.css';
 
 import Admin from "./pages/Admin";
