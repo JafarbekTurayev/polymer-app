@@ -3,7 +3,7 @@ import {LOGIN} from "../types/authType";
 const initialState = {
     isLoading: false,
 
-}
+};
 
 export const loginReducer = (state = initialState, action) => {
 
@@ -14,4 +14,4 @@ export const loginReducer = (state = initialState, action) => {
 
         default: return state;
     }
-}
+};

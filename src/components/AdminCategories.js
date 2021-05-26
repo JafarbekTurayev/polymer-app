@@ -7,32 +7,32 @@ import {AvField, AvForm} from "availity-reactstrap-validation";
 const AdminCategories = (props) => {
 
     useEffect(() => {
-        console.log("Ishla!")
-        console.log(props)
+        console.log("Ishla!");
+        console.log(props);
         props.getAllCategories();
-    }, [])
+    }, []);
 
     const saveCategory = (event, errors, values) => {
-        console.log(values)
+        console.log(values);
         if (props.selectedCategory == null) {
-            console.log("add")
+            console.log("add");
             props.addCategory(values);
         } else {
             let obj = {
                 id: props.selectedCategory.id,
                 // nameUz: values.nameUz //2-variant
                 ...values
-            }
-            console.log("edit")
+            };
+            console.log("edit");
             props.editCategory(obj);
         }
-    }
+    };
 
     return (
         <div>
             <div className="container">
                 <div className="row">
-                    <h5>Category Page {console.log(props.categories)}</h5>
+                    <h5>Category Page {console.log(props)}</h5>
                     <div className="col-3 offset-10">
                         <button type="button" className="btn btn-success" onClick={() => {
                             props.updateState({modalOpen: true})
@@ -128,7 +128,7 @@ const mapStateToProps = (state) => {
         // selectedCategory: state.category.selectedCategory
         //statelar qo'shiladi
     }
-}
+};
 export default connect(mapStateToProps, {
     updateState,
     addCategory,

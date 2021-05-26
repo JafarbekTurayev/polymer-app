@@ -1,0 +1,2 @@
+export const UPDATE_STATE = "MARKETING/UPDATE_STATE";
+export const MARKETING = "MARKETING";

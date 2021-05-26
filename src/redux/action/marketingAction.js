@@ -1,23 +1,23 @@
 import axios from "axios";
 import {toast} from "react-toastify";
 import {API_PATH} from "../../tools/tools";
-import {UPDATE_STATE} from "../types/categoriesTypes";
+import {UPDATE_STATE} from "../types/marketingType";
 
 export const updateState = (data) => {
     return {
         type: UPDATE_STATE,
         payload: data,
     }
-}
+};
 
-export function editCategory(data) {
+export function editMarketing(data) {
     return function (dispatch) {
         console.log(data);
-        axios.post(API_PATH + "category", data)
+        axios.post(API_PATH + "marketing", data)
             .then((res) => {
                 if (res.data.success) {
                     toast.success(res.data.message);
-                    dispatch(getAllCategories());
+                    dispatch(getAllMarketings());
                     dispatch({
                         type: UPDATE_STATE,
                         payload: {
@@ -31,14 +31,14 @@ export function editCategory(data) {
     }
 }
 
-export function addCategory(data) {
+export function addMarketing(data) {
     return function (dispatch) {
         console.log(data);
-        axios.post(API_PATH + "category", data)
+        axios.post(API_PATH + "marketing", data)
             .then((res) => {
                 if (res.data.success) {
                     toast.success(res.data.message);
-                    dispatch(getAllCategories());
+                    dispatch(getAllMarketings());
                     dispatch({
                         type: UPDATE_STATE,
                         payload: {
@@ -52,9 +52,9 @@ export function addCategory(data) {
     }
 }
 
-export function getAllCategories() {
+export function getAllMarketings() {
     return function (dispatch) {
-        axios.get(API_PATH + "category")
+        axios.get(API_PATH + "marketing")
             .then((res) => {
                 dispatch(updateState({menus: res.data.data}))
                 // dispatch({
@@ -68,14 +68,14 @@ export function getAllCategories() {
 }
 
 
-export function deleteCategory(id) {
+export function deleteMarketing(id) {
     console.log("delete keldi!");
     return function (dispatch) {
         axios.delete(API_PATH + "category/" + id)
             .then((res) => {
                 if (res.data.success) {
                     toast.success(res.data.message);
-                    dispatch(getAllCategories());
+                    dispatch(getAllMarketings());
                     dispatch({type: UPDATE_STATE, payload: {deleteModalOpen: false}})
                 } else {
                     toast.error("Xatolik!");
