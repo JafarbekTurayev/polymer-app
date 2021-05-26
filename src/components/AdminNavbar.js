@@ -4,13 +4,13 @@ import {Link} from "react-router-dom";
 import {Modal, ModalBody, ModalFooter} from "reactstrap";
 import {connect} from "react-redux";
 import {TOKEN_NAME} from "../tools/tools";
-import {updateState} from "../redux/reducer/appReducer";
+import {updateStateApp} from "../redux/reducer/appReducer";
 
 
 const AdminNavbar = (props) => {
 
     const changeModal = () => {
-        props.updateState({modalOpen: true})
+        props.updateStateApp({modalOpenHome: !props.modalOpenHome})
     };
     return (
         <div className='admin-layout'>
@@ -47,11 +47,10 @@ const AdminNavbar = (props) => {
                                                        to="/admin/marketing">Reklama</Link></li>
                         <li className='nav-item'><Link className='nav-link text-white'
                                                        to="/admin/exploiter">Foydalanuvchilar</Link></li>
-                        <li className='nav-item mt-4'><span className='nav-link text-white'
-                                                            onClick={changeModal}>Chiqish</span></li>
+                        <li className='nav-item mt-4'><button className='nav-link border-0 bg-transparent text-white'  onClick={changeModal}>Chiqish</button></li>
                     </ul>
 
-                    <Modal isOpen={props.modalOpen} toggle={changeModal}>
+                    <Modal isOpen={props.modalOpenHome} toggle={changeModal}>
                         <ModalBody>
                             <h5>Rostdan ham chiqmoqchimisiz? Buncha tez bizni tark etyapsiz?</h5>
                         </ModalBody>
@@ -74,10 +73,10 @@ const AdminNavbar = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        // modalOpen: state.app.modalOpen,
+        modalOpenHome: state.app.modalOpenHome,
         //statelar qo'shiladi
     }
 }
 export default connect(mapStateToProps, {
-    updateState,
+    updateStateApp,
 })(AdminNavbar);

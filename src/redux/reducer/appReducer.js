@@ -1,5 +1,6 @@
 const initialState = {
     pageLoading: true,
+    modalOpenHome: false,
 }
 
 export const appReducer = (state = initialState, action) => {
@@ -14,7 +15,7 @@ export const appReducer = (state = initialState, action) => {
     }
 }
 
-export const updateState = (data) => {
+export const updateStateApp = (data) => {
     return {
         type: "UPDATE_STATE",
         payload: data,

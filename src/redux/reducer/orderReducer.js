@@ -5,6 +5,7 @@ const initialState = {
     isLoading: false,
     modalOpen: false,
     selectedOrder: {},
+    products: [],
 
 
 };
@@ -20,4 +21,4 @@ export const orderReducer = (state = initialState, action) => {
 
         default: return state;
     }
-}
+};

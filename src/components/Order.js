@@ -1,12 +1,16 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {connect} from "react-redux";
-import {addOrder, updateState, editOrder} from "../redux/action/orderAction";
+import {addOrder, updateState, editOrder, takeProducts, takeOrder} from "../redux/action/orderAction";
 import {Modal, ModalHeader, ModalBody, ModalFooter} from "reactstrap";
 import {AvForm, AvField} from 'availity-reactstrap-validation'
 import {TOKEN_NAME} from "../tools/tools";
 
 
 const Order = (props) => {
+    useEffect(()=>{
+        props.takeProducts();
+        props.takeOrder();
+    }, [])
 
     const toggle = () => {props.updateState({modalOpen: !props.modalOpen});};
 
@@ -16,7 +20,7 @@ const Order = (props) => {
             console.log("add");
             let key=localStorage.getItem(TOKEN_NAME);
             console.log(key);
-            props.addOrder({values, headers: {authorization: key}});
+            props.addOrder(values);
         } else {
             let obj = {
                 id: props.selectedOrder.id,
@@ -25,7 +29,8 @@ const Order = (props) => {
             console.log("Edit worked");
             props.editOrder(obj);
         }
-    }
+    };
+
 
     return (
         <div style={{padding: "30px 20px"}}>
@@ -42,10 +47,17 @@ const Order = (props) => {
                 <AvForm onSubmit={saveOrder}>
                     <ModalBody>
                         <AvField name="selectedProductId" defaultValue={props.selectedOrder?.selectedProductId} type="select" value="Mijozlar" label="Mijozlar">
-                            <option value="1">
+                            {props.products.map((item, index)=>{
+                                return(
+                                    <option value={item.id}>
+                                        {item}
+                                    </option>
+                                )
+                            })}
+                            <option >
                                 Eldor
                             </option>
-                            <option value="2">
+                            <option>
                                 Ja'farbek
                             </option>
                         </AvField>
@@ -79,10 +91,11 @@ const mapStateToProps = (state) => {
 
     return {
         isLoading: state.order.isLoading,
-        modalOpen: state.order.modalOpen
+        modalOpen: state.order.modalOpen,
+        products: state.order.products
 
     }
-}
+};
 
 
-export default connect(mapStateToProps, {addOrder, updateState, editOrder})(Order);
+export default connect(mapStateToProps, {addOrder, updateState, editOrder, takeProducts, takeOrder})(Order);
