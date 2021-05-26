@@ -3,6 +3,7 @@ import {ToastContainer} from "react-toastify";
 import Login from "./pages/Login";
 import Admin from "./pages/Admin";
 import PrivateRoute from "./components/PrivateRoute";
+import Prodacts from "./pages/Prodacts";
 
 function App() {
     return (
@@ -12,6 +13,7 @@ function App() {
                     {/*<Route exact path='/' component={Home}/>*/}
                     {/*<Route exact path='/category/:url' component={CategoryPage}/>*/}
                     <Route exact path='/login' component={Login}/>
+                    <Route path="/products" exact component={Prodacts}/>
                     <PrivateRoute exact path='/admin/:url' component={Admin}/>
                     {/*<Route component={NotFound}/>*/}
                 </Switch>
