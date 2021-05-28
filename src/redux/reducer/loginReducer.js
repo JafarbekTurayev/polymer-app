@@ -5,7 +5,7 @@ const initialState = {
     modalOpen: true,
     menu: {id: 1, name: "Jafar"}
 
-}
+};
 
 export const loginReducer = (state = initialState, action) => {
 
@@ -17,4 +17,4 @@ export const loginReducer = (state = initialState, action) => {
         default:
             return state;
     }
-}
+};

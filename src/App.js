@@ -9,17 +9,21 @@ import PrivateRoute from "./components/PrivateRoute";
 import Prodacts from "./pages/Prodacts";
 import {useEffect} from "react";
 import {TOKEN_NAME} from "./tools/tools";
+import React from "react";
+import AdminMarketing from "./components/AdminMarketing";
 
 function App() {
     useEffect(()=>{
-            // localStorage.setItem(TOKEN_NAME, 11111)
+            localStorage.setItem(TOKEN_NAME, 11111)
     }, [])
     return (
         <div>
             <BrowserRouter>
                 <Switch>
                     {/*<Route exact path='/' component={Home}/>*/}
+                    {/*<Route exact path='/category/:url' component={CategoryPage}/>*/}
                     <Route exact path='/login' component={Login}/>
+                    <Route exact path='/marketing' component={AdminMarketing}/>
                     {/*<Route path="/products" exact component={Prodacts}/>*/}
                     <PrivateRoute exact path='/admin/:url' component={Admin}/>
                     {/*<Route component={NotFound}/>*/}
