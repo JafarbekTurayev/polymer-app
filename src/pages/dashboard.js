@@ -4,6 +4,8 @@ import {BsBell} from 'react-icons/bs'
 import {Bar, Line} from "react-chartjs-2";
 import {connect} from "react-redux";
 import {chartSubmit} from "../redux/action/chartAction";
+import moment from "moment";
+
 
 const Dashboard = (props) => {
     const cards = [
@@ -18,8 +20,8 @@ const Dashboard = (props) => {
             <div className="d-flex">
                 <h5 className="d-flex align-items-center m-0 p-4 chiziq">Dashboard</h5>
                 <AvForm className="d-flex" onSubmit={props.chartSubmit}>
-                    <AvField name="from" type="date" label="Dan" validate={{date: {format: 'MM/DD/YYYY'}}}/>
-                    <AvField name="to" type="date" label="Gacha" validate={{date: {format: 'MM/DD/YYYY'}}} />
+                    <AvField name="from" type="date" label="Dan" validate={moment().format('MMMM Do YYYY, h:mm:ss a')}/>
+                    <AvField name="to" type="date" label="Gacha" validate={moment().format('MMMM Do YYYY, h:mm:ss a')} />
                     <button type="submit">Submit</button>
                 </AvForm>
             </div>
