@@ -1,5 +1,5 @@
 import axios from "axios";
-import {API_PATH} from "../../tools/tools";
+import {API_PATH, TOKEN_NAME} from "../../tools/tools";
 import {toast} from "react-toastify";
 import {ADD_PRODUCT_TYPE, UPDATE_STATE_PT} from "../types/ptype";
 
@@ -33,5 +33,27 @@ export function addProductType(data) {
             })
     }
 }
+
+export function getAllProductTypes() {
+    return function (dispatch) {
+        //API_PATH + "category?page=" + page + "&size=" + size + "&searchName" + name
+        let token = localStorage.getItem(TOKEN_NAME);
+        axios.get(API_PATH + "productType/all", {
+            headers: {'Authorization': token},
+        })
+            .then((res) => {
+                console.log(res.data)
+                dispatch(updateState({productTypes: res.data}))
+                // dispatch({
+                //     type: "CHANGE_LOADING",
+                //     payload: {
+                //         pageLoading: false
+                //     }
+                // })
+            })
+    }
+}
+
+
 
 

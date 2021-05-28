@@ -16,9 +16,7 @@ export function editCategory(data) {
         let token = localStorage.getItem(TOKEN_NAME);
         axios.post(API_PATH + "category", data,
             {
-                headers: {
-                    'Authorization': token
-                },
+                headers: {'Authorization': token},
             })
             .then((res) => {
                 if (res.data.success) {
