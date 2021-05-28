@@ -19,6 +19,7 @@ export function takeProducts() {
         axios.get(API_PATH+ "product", tokenHeader)
             .then((res)=>{
                 console.log(res);
+                console.log("mahsulotlar")
                 // dispatch({products: res.data})
             })
     }
@@ -29,7 +30,18 @@ export function addOrder(data) {
         dispatch({
             type: Order
         });
+
         axios.post(API_PATH + "userOrder", data, tokenHeader)
+
+        let token = localStorage.getItem(TOKEN_NAME);
+        axios.post(API_PATH + "userOrder",
+            data,
+            {
+                headers: {
+                    // 'Content-Type': 'application/json',
+                    'Authorization': token
+                },
+            })
             .then((res) => {
                 console.log(res);
                 dispatch({type: Order});
@@ -59,12 +71,33 @@ export function takeOrder() {
     }
 }
 
+export function deleteOrder(data) {
+    return function (dispatch) {
+        dispatch({
+            type: Order
+        });
+
+        axios.delete(API_PATH+ "userOrder"+data.id)
+            .then((res)=>{
+                console.log(res)
+                console.log("delete");
+                toast.success("Success deleted")
+            }).catch((error)=>{
+                toast.error(error)
+        })
+    }
+}
+
 export function editOrder(data) {
     return function (dispatch) {
         dispatch({
             type: Order
         });
-        axios.put(API_PATH + "userOrder/"+data.id, data, tokenHeader)
+
+
+
+        axios.put(API_PATH + "userOrder/" + data.id, data, tokenHeader)
+
             .then((res) => {
                 console.log(res);
                 dispatch({type: Order});

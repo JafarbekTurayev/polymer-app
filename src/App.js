@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import Admin from "./pages/Admin";
 import PrivateRoute from "./components/PrivateRoute";
+import Prodacts from "./pages/Prodacts";
 import {useEffect} from "react";
 import {TOKEN_NAME} from "./tools/tools";
 
@@ -18,8 +19,8 @@ function App() {
             <BrowserRouter>
                 <Switch>
                     {/*<Route exact path='/' component={Home}/>*/}
-                    {/*<Route exact path='/category/:url' component={CategoryPage}/>*/}
                     <Route exact path='/login' component={Login}/>
+                    {/*<Route path="/products" exact component={Prodacts}/>*/}
                     <PrivateRoute exact path='/admin/:url' component={Admin}/>
                     {/*<Route component={NotFound}/>*/}
                 </Switch>

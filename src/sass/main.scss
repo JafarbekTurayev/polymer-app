@@ -1,0 +1,95 @@
+.top{
+  height: 10vh;
+  width: 100%;
+  display: flex;
+  border-bottom: 2px solid #A9A9A9;
+  .topLeft{
+    width: 250px;
+    border-right: 3px solid #A9A9A9;
+    //background-color: red;
+    .btn{
+      &:focus{
+        box-shadow: 0 0 0 0;
+      }
+    }
+    .dflex{
+      margin-top: 5px;
+      .imgSpan{
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        background-color: slategray;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .imgPilus{
+          width: 20px;
+          height: 20px;
+        }
+      }
+      .imgSpan2{
+        margin-left: 20px;
+        font-width:500;
+        font-size: 15px;
+        font-style: normal;
+      }
+    }
+  }
+  .topRight{
+    width: calc(100% - 250px);
+  display: flex;
+    align-items: center;
+    .input-group{
+      width: 250px;
+      //margin-top: 15px;
+      margin-left: 40px;
+      display: flex;
+      align-items: center;
+      background-color: #CACACA;
+      border-radius: 20px;
+      input{
+        border: 0;
+        margin-left: 10px;
+        background-color: #CACACA;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        &:focus{
+          box-shadow: 0 0 0 0;
+        }
+        &::placeholder{
+
+        }
+      }
+      .input-group-append{
+        background-color: #CACACA;
+        border-radius: 20px;
+        img{
+          margin-left: 5px;
+          margin-right: 20px;
+        }
+      }
+    }
+    select{
+      width: 250px;
+      margin-left: 50px;
+      background-color: #E9E9E9;
+    }
+  }
+}
+.modal{
+  margin-top:20px;
+  border-radius: 0;
+  height: 100vh;
+
+}
+
+.top2{
+
+  table{
+    //background-color: slategray;
+    width: 100%;
+    thead{
+      background-color: yellow;
+    }
+  }
+}
