@@ -1,13 +1,14 @@
-import {UPDATE_STATE} from "../types/categoriesTypes";
+import {UPDATE_STATE} from "../types/marketingType";
 
 const initialState = {
     modalOpen: false,
-    categories: [],
+    marketing: [],
     deleteModalOpen: false,
     selectedIdForDelete: null,
-    selectedCategory: {},
+    selectedMarketing: {},
 };
-export const categoryReducer = (stete = initialState, action) => {
+export const marketingReducer = (stete = initialState, action) => {
+    console.log("ishladi");
     switch (action.type) {
         case UPDATE_STATE:
             return {...stete, ...action.payload};

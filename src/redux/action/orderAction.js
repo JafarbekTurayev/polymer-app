@@ -28,7 +28,7 @@ export function addOrder(data) {
             .then((res) => {
                 console.log(res);
                 dispatch({type: Order});
-                toast.success(res.status)
+                toast.success(res.status);
                 dispatch(updateState({modalOpen: false, selectedOrder: {}}))
 
 
@@ -51,7 +51,7 @@ export function editOrder(data) {
             .then((res) => {
                 console.log(res);
                 dispatch({type: Order});
-                toast.success(res.status)
+                toast.success(res.status);
                 dispatch(updateState({modalOpen: false}))
 
             })

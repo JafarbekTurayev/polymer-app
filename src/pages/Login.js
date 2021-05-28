@@ -8,7 +8,7 @@ const Login = (props) => {
     const login = (event, values) => {
 
         props.loginUser(values, props.history);
-    }
+    };
 
     return (
         <div>
