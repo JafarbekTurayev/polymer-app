@@ -2,25 +2,31 @@ import {CHART_TYPE} from "../types/chartTypes";
 
 
 const LineChart = {
-    labels: ["Jan","Feb","Mrt","Apr","May"],
-    datasets: [
-        {
-            label: 'Statistikalar',
-            data: [0,100,200,300,400,500,600],
-            borderColor: ['#333'],
-            backgroundColor: ['#333'],
-            pointBackgroundColor: ['#333'],
-            pointBorderColor: ['#FFF']
-        }
-    ],
-    options: {
-        chart: {
-            id: "basic-bar"
-        },
-        xaxis: {
-            categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
-        }
+    type: 'bar',
+    data: {
+        labels: [0,1,2,3,4],
+        datasets: [{
+            // axis: 'y',
+            label: '',
+            data: [0,205,400,520,270],
+            fill: false,
+            // indexAxis: 'y',
+            backgroundColor:'rgba(54, 162, 235, 0.2)',
+            borderColor: 'rgba(54, 162, 235, 0.2)',
+        }]
     },
+    options: {
+        plugins:{
+            title:{
+                display: true,
+                text: 'Statistikalar',
+                align: 'start',
+                font:{
+                    size: '20'
+                }
+            }
+        }
+    }
 
 };
 
