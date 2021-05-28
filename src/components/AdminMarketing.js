@@ -23,9 +23,9 @@ const AdminMarketing = (props) => {
         console.log(values);
         if (props.selectedMarketing == null) {
             console.log("add");
-            let key=localStorage.getItem(TOKEN_NAME);
+            let key = localStorage.getItem(TOKEN_NAME);
             console.log(key);
-            props.addOrder({values, headers: {authorization: key}});
+            props.addMarketing({values, headers: {authorization: key}});
         } else {
             let obj = {
                 id: props.selectedMarketing.id,
@@ -56,8 +56,13 @@ const AdminMarketing = (props) => {
                     <table className='table table-striped table-hover mt-3 table-bordered'>
                         <thead>
                         <tr>
+                            <th>Photo</th>
                             <th>Title (uz)</th>
+                            <th>Title (rus)</th>
+                            <th>Title (en)</th>
                             <th>Description (uz)</th>
+                            <th>Description (rus)</th>
+                            <th>Description (en)</th>
                             <th>Url</th>
                             <th>Menu</th>
                             <th>Action</th>

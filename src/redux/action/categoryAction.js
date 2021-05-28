@@ -67,7 +67,6 @@ export function getAllCategories() {
     }
 }
 
-
 export function deleteCategory(id) {
     console.log("delete keldi!");
     return function (dispatch) {

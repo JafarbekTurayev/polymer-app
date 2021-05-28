@@ -16,7 +16,15 @@ export function addOrder(data) {
         dispatch({
             type: Order
         });
-        axios.post(API_PATH + "userOrder", data)
+        let token = localStorage.getItem(TOKEN_NAME);
+        axios.post(API_PATH + "userOrder",
+            data,
+            {
+                headers: {
+                    // 'Content-Type': 'application/json',
+                    'Authorization': token
+                },
+            })
             .then((res) => {
                 console.log(res);
                 dispatch({type: Order});
@@ -39,7 +47,7 @@ export function editOrder(data) {
         dispatch({
             type: Order
         });
-        axios.put(API_PATH + "userOrder/"+data.id, data)
+        axios.put(API_PATH + "userOrder/" + data.id, data)
             .then((res) => {
                 console.log(res);
                 dispatch({type: Order});

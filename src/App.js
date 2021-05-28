@@ -24,6 +24,7 @@ function App() {
                     {/*<Route exact path='/category/:url' component={CategoryPage}/>*/}
                     <Route exact path='/login' component={Login}/>
                     <Route exact path='/marketing' component={AdminMarketing}/>
+                    {/*<Route path="/products" exact component={Prodacts}/>*/}
                     <PrivateRoute exact path='/admin/:url' component={Admin}/>
                     {/*<Route component={NotFound}/>*/}
                 </Switch>

@@ -13,4 +13,5 @@ export const rootReducer = combineReducers({
     category: categoryReducer,
     order: orderReducer,
     marketings: marketingReducer,
+    productType: productsReducer,
 });
