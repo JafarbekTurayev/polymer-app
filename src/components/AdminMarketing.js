@@ -36,7 +36,6 @@ const AdminMarketing = (props) => {
         }
     };
 
-
     return (
         <div>
             <div className="container">
@@ -72,20 +71,20 @@ const AdminMarketing = (props) => {
                         {/*{props.marketing?.map(item => (*/}
                         {/*    <tr>*/}
                         {/*        /!*<td>{item.titleUz}</td>*!/*/}
-                        {/*        /!*<td>{item.descriptionUz}</td>*!/*/}
+                        {/*        /!*<td>{item.textUz}</td>*!/*/}
                         {/*        /!*<td>{item.url}</td>*!/*/}
-                        {/*        /!*<td>{item.menu.nameUz}</td>*!/*/}
-                        {/*        <td>*/}
-                        {/*            <button className="btn btn-warning"*/}
-                        {/*                    onClick={() => props.updateState({*/}
-                        {/*                        selectedMarketing: item,*/}
-                        {/*                        modalOpen: true*/}
-                        {/*                    })}>EDIT*/}
-                        {/*            </button>*/}
-                        {/*            <button className="btn btn-danger"*/}
-                        {/*                    onClick={() => props.deleteMarketing(item.id)}>DELETE*/}
-                        {/*            </button>*/}
-                        {/*        </td>*/}
+                        {/*        */}
+                        {/*        /!*<td>*!/*/}
+                        {/*        /!*    <button className="btn btn-warning"*!/*/}
+                        {/*        /!*            onClick={() => props.updateState({*!/*/}
+                        {/*        /!*                selectedMarketing: item,*!/*/}
+                        {/*        /!*                modalOpen: true*!/*/}
+                        {/*        /!*            })}>EDIT*!/*/}
+                        {/*        /!*    </button>*!/*/}
+                        {/*        /!*    <button className="btn btn-danger"*!/*/}
+                        {/*        /!*            onClick={() => props.deleteMarketing(item.id)}>DELETE*!/*/}
+                        {/*        /!*    </button>*!/*/}
+                        {/*        /!*</td>*!/*/}
                         {/*    </tr>*/}
                         {/*))}*/}
                         </tbody>

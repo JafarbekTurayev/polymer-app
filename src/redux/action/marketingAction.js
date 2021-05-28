@@ -2,7 +2,7 @@ import axios from "axios";
 import {toast} from "react-toastify";
 import {API_PATH, TOKEN_NAME} from "../../tools/tools";
 import {UPDATE_STATE} from "../types/marketingType";
-import {getAllCategories} from "./categoryAction";
+
 
 export const updateState = (data) => {
     return {
@@ -14,7 +14,13 @@ export const updateState = (data) => {
 export function editMarketing(data) {
     return function (dispatch) {
         console.log(data);
-        axios.post(API_PATH + "marketing", data)
+        let token = localStorage.getItem(TOKEN_NAME);
+        axios.post(API_PATH + "marketing", data,
+            {
+                headers: {
+                    'Authorization': token
+                },
+            })
             .then((res) => {
                 if (res.data.success) {
                     toast.success(res.data.message);
@@ -67,7 +73,7 @@ export function getAllMarketings() {
             headers: {'Authorization': token},
         })
             .then((res) => {
-                console.log(res)
+                console.log(res);
                 dispatch(updateState({marketing: res.data}))
                 // dispatch({
                 //     type: "CHANGE_LOADING",
@@ -80,10 +86,13 @@ export function getAllMarketings() {
 }
 
 
+
 export function deleteMarketing(id) {
     console.log("delete keldi!");
     return function (dispatch) {
-        axios.delete(API_PATH + "category/" + id)
+        let token = localStorage.getItem(TOKEN_NAME);
+        axios.delete(API_PATH + "marketing/" + id,
+            {headers: {'Authorization': token},})
             .then((res) => {
                 if (res.data.success) {
                     toast.success(res.data.message);
@@ -93,5 +102,4 @@ export function deleteMarketing(id) {
                     toast.error("Xatolik!");
                 }
             })
-    }
-}
+    }}
