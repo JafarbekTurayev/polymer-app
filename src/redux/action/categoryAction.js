@@ -1,6 +1,6 @@
 import axios from "axios";
 import {toast} from "react-toastify";
-import {API_PATH} from "../../tools/tools";
+import {API_PATH, TOKEN_NAME} from "../../tools/tools";
 import {UPDATE_STATE} from "../types/categoriesTypes";
 
 export const updateState = (data) => {
@@ -12,8 +12,14 @@ export const updateState = (data) => {
 
 export function editCategory(data) {
     return function (dispatch) {
-        console.log(data);
-        axios.post(API_PATH + "category", data)
+        console.log(data)
+        let token = localStorage.getItem(TOKEN_NAME);
+        axios.post(API_PATH + "category", data,
+            {
+                headers: {
+                    'Authorization': token
+                },
+            })
             .then((res) => {
                 if (res.data.success) {
                     toast.success(res.data.message);
@@ -33,8 +39,13 @@ export function editCategory(data) {
 
 export function addCategory(data) {
     return function (dispatch) {
-        console.log(data);
-        axios.post(API_PATH + "category", data)
+        console.log(data)
+        let token = localStorage.getItem(TOKEN_NAME);
+        axios.post(API_PATH + "category", data, {
+            headers: {
+                'Authorization': token
+            },
+        })
             .then((res) => {
                 if (res.data.success) {
                     toast.success(res.data.message);
@@ -54,9 +65,17 @@ export function addCategory(data) {
 
 export function getAllCategories() {
     return function (dispatch) {
-        axios.get(API_PATH + "category")
+        let page = 0;
+        let size = 10;
+        let name = "new"
+        //API_PATH + "category?page=" + page + "&size=" + size + "&searchName" + name
+        let token = localStorage.getItem(TOKEN_NAME);
+        axios.get(API_PATH + "category/all", {
+            headers: {'Authorization': token},
+        })
             .then((res) => {
-                dispatch(updateState({menus: res.data.data}))
+                console.log(res)
+                dispatch(updateState({categories: res.data}))
                 // dispatch({
                 //     type: "CHANGE_LOADING",
                 //     payload: {
@@ -68,9 +87,11 @@ export function getAllCategories() {
 }
 
 export function deleteCategory(id) {
-    console.log("delete keldi!");
+    console.log("delete keldi!")
     return function (dispatch) {
-        axios.delete(API_PATH + "category/" + id)
+        let token = localStorage.getItem(TOKEN_NAME);
+        axios.delete(API_PATH + "category/" + id,
+            {headers: {'Authorization': token},})
             .then((res) => {
                 if (res.data.success) {
                     toast.success(res.data.message);
@@ -82,3 +103,4 @@ export function deleteCategory(id) {
             })
     }
 }
+

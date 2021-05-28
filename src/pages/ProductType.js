@@ -5,7 +5,6 @@ import {connect} from "react-redux";
 import {addProductType, updateState} from "../redux/action/productTypeAction";
 
 const ProductType = (props) => {
-
     const productTypeSave = (event, values) => {
 
         console.log(values)

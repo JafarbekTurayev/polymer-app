@@ -2,7 +2,7 @@ import {UPDATE_STATE} from "../types/categoriesTypes";
 
 const initialState = {
     modalOpen: false,
-    categories: [12, 12, 34],
+    categories: [],
     deleteModalOpen: false,
     selectedIdForDelete: null,
     selectedCategory: {},

@@ -1,7 +1,8 @@
 import axios from "axios";
 import {toast} from "react-toastify";
-import {API_PATH} from "../../tools/tools";
+import {API_PATH, TOKEN_NAME} from "../../tools/tools";
 import {UPDATE_STATE} from "../types/marketingType";
+import {getAllCategories} from "./categoryAction";
 
 export const updateState = (data) => {
     return {
@@ -34,7 +35,12 @@ export function editMarketing(data) {
 export function addMarketing(data) {
     return function (dispatch) {
         console.log(data);
-        axios.post(API_PATH + "marketing", data)
+        let token = localStorage.getItem(TOKEN_NAME);
+        axios.post(API_PATH + "marketing", data, {
+            headers: {
+                'Authorization': token
+            },
+        })
             .then((res) => {
                 if (res.data.success) {
                     toast.success(res.data.message);
@@ -54,9 +60,15 @@ export function addMarketing(data) {
 
 export function getAllMarketings() {
     return function (dispatch) {
-        axios.get(API_PATH + "marketing")
+
+        //API_PATH + "category?page=" + page + "&size=" + size + "&searchName" + name
+        let token = localStorage.getItem(TOKEN_NAME);
+        axios.get(API_PATH + "marketing/all", {
+            headers: {'Authorization': token},
+        })
             .then((res) => {
-                dispatch(updateState({menus: res.data.data}))
+                console.log(res)
+                dispatch(updateState({marketing: res.data}))
                 // dispatch({
                 //     type: "CHANGE_LOADING",
                 //     payload: {

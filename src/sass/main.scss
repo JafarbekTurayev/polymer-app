@@ -1,3 +1,6 @@
+body{
+  background: #FAFAFA;
+}
 .top{
   height: 10vh;
   width: 100%;
@@ -92,4 +95,39 @@ margin-top:20px;
       background-color: yellow;
     }
   }
+}
+// --- dashboard section---
+
+.background-root-1{
+  background-image:linear-gradient(to right, #00bfff, #99e6ff);
+  border-radius: 4px;
+  height: 150px;
+}
+.background-root-2{
+  background-image:linear-gradient(to right, #ff66ff, #ffb3ff);
+  border-radius: 4px;
+  height: 150px;
+}
+.background-root-3{
+  background-image:linear-gradient(to right, #66ff66, #b3ffb3);
+  border-radius: 4px;
+  height: 150px;
+}
+.background-root-4{
+  background-image:linear-gradient(to right, #ff8533, #ffb380);
+  border-radius: 4px;
+  height: 150px;
+}
+nav{
+  background: #FFFFFF;
+}
+.chiziq{
+  border-right: 2px solid grey;
+}
+.form-group{
+  margin: 0;
+  padding: 10px;
+}
+.row{
+  margin: 0;
 }

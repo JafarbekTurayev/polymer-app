@@ -1,6 +1,5 @@
 import {ADD_PRODUCT_TYPE} from "../types/ptype";
 
-
 const initialState = {
     modalOpen: false,
     productTypes: [],
