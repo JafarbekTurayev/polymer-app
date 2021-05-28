@@ -14,7 +14,7 @@ export const rootReducer = combineReducers({
     products: productsReducer,
     category: categoryReducer,
     order: orderReducer,
-    productType: productTypeReducer
+    productType: productTypeReducer,
     chartLine: chartReduser,
     barChart: barChartReduser
 });
