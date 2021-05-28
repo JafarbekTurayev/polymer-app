@@ -7,7 +7,7 @@ import {chartSubmit} from "../redux/action/chartAction";
 
 const Dashboard = (props) => {
     const cards = [
-        {title:"Foydalanuvchilar soni", count: 0, background: "background-root-1"},
+        {title:"Foydalanuvchilar soni", count: props.count, background: "background-root-1"},
         {title:"Axborot", count: 0, background: "background-root-2"},
         {title:"Zakaz aborot", count: 0, background: "background-root-3"},
         {title:"Mahsulotlar", count: 0, background: "background-root-4"},
@@ -56,6 +56,7 @@ const Dashboard = (props) => {
                         <Bar
                             type='bar'
                             data={props.barchartData}
+                            options={props.barchartOptions}
                         />
                     </div>
                 </div>
@@ -71,6 +72,7 @@ const mapStateToProps =(state)=>{
         lineTitle: state.chartLine.options,
         //   bar chart
         barchartData: state.barChart.data,
+        barchartOptions: state.barChart.options
     }
 }
 

@@ -22,6 +22,18 @@ const initialState = {
                 'rgba(153, 102, 255, 0.2)',
             ]
         }]
+    },
+    options: {
+        plugins:{
+            title:{
+                display: true,
+                text: "Eng ko'p sotiladigan mahsulotlar TOP-10",
+                align: 'start',
+                font: {
+                    size:'20'
+                }
+            }
+        }
     }
 }
 

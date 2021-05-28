@@ -4,6 +4,7 @@ import {API_PATH, TOKEN_NAME} from "../../tools/tools";
 
 export const chartSubmit =(events, errors, values)=>{
 
+    console.log("keldi")
     let token = localStorage.getItem(TOKEN_NAME);
     axios.post(API_PATH + "report",
         values,
@@ -14,9 +15,11 @@ export const chartSubmit =(events, errors, values)=>{
             },
         })
         .then(res=>{
+
             console.log(res)
         })
 }
+
 
 
 
